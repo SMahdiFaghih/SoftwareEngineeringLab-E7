@@ -16,23 +16,28 @@ public class Memory {
 
     public Memory() {
         codeBlock = new ArrayList<_3AddressCode>();
-        lastTempIndex = stratTempMemoryAddress;
-        lastDataAddress = stratDataMemoryAddress;
+        setLastTempIndex(stratTempMemoryAddress);
+        setLastDataAddress(stratDataMemoryAddress);
+
     }
 
     public int getTemp() {
-        return lastTempIndex;
-    }
-    public void changeTempIndex(){
-        lastTempIndex += tempSize;
+        return getLastTempIndex();
     }
 
+    public void changeTempIndex() {
+        setLastTempIndex(getLastTempIndex() + tempSize);
+    }
 
 
     public int getDateAddress() {
-        lastDataAddress += dataSize;
-        return lastDataAddress - dataSize;
+        return getLastDataAddress() - dataSize;
     }
+
+    public void changeDataAddress() {
+        setLastDataAddress(getLastDataAddress() + dataSize);
+    }
+
 
     public int saveMemory() {
         codeBlock.add(new _3AddressCode());
@@ -57,6 +62,22 @@ public class Memory {
         for (int i = 0; i < codeBlock.size(); i++) {
             System.out.println(i + " : " + codeBlock.get(i).toString());
         }
+    }
+
+    public int getLastTempIndex() {
+        return lastTempIndex;
+    }
+
+    public void setLastTempIndex(int lastTempIndex) {
+        this.lastTempIndex = lastTempIndex;
+    }
+
+    public int getLastDataAddress() {
+        return lastDataAddress;
+    }
+
+    public void setLastDataAddress(int lastDataAddress) {
+        this.lastDataAddress = lastDataAddress;
     }
 }
 
