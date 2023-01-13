@@ -65,7 +65,7 @@ public class SymbolTable {
     }
 
     public void setSuperClass(String superClass, String className) {
-        klasses.get(className).superClass = klasses.get(superClass);
+        klasses.get(className).setSuperClass(klasses.get(superClass));
     }
 
     public Address get(String keywordName) {
@@ -125,23 +125,24 @@ public class SymbolTable {
 
 
     class Klass {
-        public Map<String, Symbol> Fields;
-        public Map<String, Method> Methodes;
-        public Klass superClass;
+        private Map<String, Symbol> Fields = new HashMap<>();
+        private Map<String, Method> Methodes = new HashMap<>();
+        private Klass superClass;
 
-        public Klass() {
-            Fields = new HashMap<>();
-            Methodes = new HashMap<>();
-        }
-
-        public Symbol getField(String fieldName) {
-            if (Fields.containsKey(fieldName)) {
+        public Symbol getField(String fieldName)
+        {
+            if (Fields.containsKey(fieldName))
+            {
                 return Fields.get(fieldName);
             }
-            return superClass.getField(fieldName);
 
+            return superClass.getField(fieldName);
         }
 
+        public void setSuperClass(Klass superClass)
+        {
+            this.superClass = superClass;
+        }
     }
 
     class Method {
