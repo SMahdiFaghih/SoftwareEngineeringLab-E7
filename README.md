@@ -5,6 +5,22 @@
 
 ### شرح آزمایش :
 
+متاسفانه نتوانستیم بیش از یک مورد State or Strategy پیدا کنیم و برای اینکه 7 مورد بازآرایی را انجام داده باشیم تعداد بیشتری Self Encapsulated Field و ... را انجام دادیم.
+
+برای بازآرایی Separate query from modifier در کلاس Memory تابع getTemp را که هم وظیفه تغییر lastTempSize و هم بازگرداندن مقدار فعلی آن را بر عهده داشت، به دو تابع جداگانه تبدیل کردیم که هر دو پشت سر هم فراخوانی شوند و به این ترتیب query و modifier از هم جدا شدند
+
+برای بازآرایی State or Strategy  در کلاس GrammarSymbol کلاسی به نام GrammarSymbolType اضافه شد که دو کلاس NonTerminalGrammarSymbol و TerminalGrammarSymbol از آن ارث بری کنند و در نتیجه در کلاس GrammarSymbol تنها یک متغیر از کلاس GrammarSymbolType وجود داشته باشد.
+
+برای بازآرایی Self Encapsulated Field در کلاس Memory برای فیلدهای این کلاس getter و setter تعریف شد و به طور مستقیم از فیلدها برای گرفتن مقدار یا تغییر مقدار آنها استفاده نشد.
+
+برای بازآرایی Self Encapsulated Field در کلاس 3AddressCode فیلدهای این کلاس از public به private تغییر یافتند و getter برای آنها اضافه شد.
+
+برای بازآرایی Self Encapsulated Field در کلاس Action فیلدهای این کلاس از public به private تغییر یافتند و getter برای آنها اضافه شد و چون مقدار آنها در طول برنامه تغییر نمی یافت به صورت final تعریف شدند.
+
+برای بازآرایی Self Encapsulated Method در کلاس CodeGenerator توابعی که از کلاس های دیگر استفاده نمی شدند از public به private تغییر کردند تا از خارج کلاس قابل دسترسی نباشند.
+
+برای بازآرایی Self Encapsulated Field در کلاس Klass فیلدهای این کلاس از public به private تغییر یافتند و setter برای آنها اضافه شد.
+
 ## پرسش ها
 
 ## سوال اول
